@@ -1,4 +1,3 @@
-[README (1).md](https://github.com/user-attachments/files/24133899/README.1.md)
 # 📦 Order Processing & Analytics Pipeline on AWS
 
 #### This project showcases a full end-to-end serverless data pipeline built using multiple AWS services — from a simple order form to complete analytics and visualization.
@@ -8,7 +7,7 @@
 ##### A user submits an order form (HTML, CSS, JS) hosted on Amazon S3 with CloudFront distribution. The form triggers a REST API that invokes a Lambda function, which stores order data into DynamoDB. Separately, a CSV dataset stored in S3 undergoes processing via AWS Glue, and both data sources are combined, cleaned, transformed into Parquet, and queried through Athena and Redshift Spectrum. Finally, insights and graphs are created using Amazon QuickSight.
 
 ---
-![VPC](images/etl.png)
+![VPC](images/etl-final.png)
 
 ### 🔧 AWS Services Used -
 #### 1. Frontend & Hosting
