@@ -1329,7 +1329,63 @@ This will create an Analysis.
 ---
 ![VPC](images/quicksight-spice-dataset.jpg)
 
-#### 7.3) Build Dashboards in Amazon QuickSight -
+#### 7.3) Modify IAM Role of Quicksight -
+- Go to IAM
+- Go to Policies
+- Click on create policy 
+- Paste below JSON :
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:List*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:DescribeKey"
+            ],
+            "Resource": "arn:aws:kms:ap-south-1:108782067493:key/85a35c7c-e2ee-4092-938a-0d9528b1769b"
+        },
+        {
+            "Action": [
+                "rds:Describe*"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": [
+                "redshift:Describe*"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+```
+- Enter name of policy : Quicksight-custom-managed-policy
+- Click Create Policy
+- Go to Roles
+- Search for 'aws-quicksight-service-role-v0'
+- Click on Add Permission : Attach Policies
+- Attach above policy and save
+
+#### 7.4) Build Dashboards in Amazon QuickSight -
 
 - Choose Vertical bar chart
 
